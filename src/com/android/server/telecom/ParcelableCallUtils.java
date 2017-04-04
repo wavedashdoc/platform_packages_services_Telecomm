@@ -88,6 +88,8 @@ public class ParcelableCallUtils {
         }
         int capabilities = convertConnectionToCallCapabilities(call.getConnectionCapabilities());
         int properties = convertConnectionToCallProperties(call.getConnectionProperties());
+        int supportedAudioRoutes = call.getSupportedAudioRoutes();
+
         if (call.isConference()) {
             properties |= android.telecom.Call.Details.PROPERTY_CONFERENCE;
         }
@@ -155,6 +157,7 @@ public class ParcelableCallUtils {
                 capabilities,
                 properties,
                 connectTimeMillis,
+                supportedAudioRoutes,
                 call.getCreationTimeMillis(),
                 handle,
                 call.getHandlePresentation(),
